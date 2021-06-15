@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/user-base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Dashboard</title>
+
+
+</head>
+
+<body>
+
+
+
+
+
+	<section>
+
+		<div class="card mr-3">
+
+			<div class="card-body">
+
+				<h1 class="text-center">Update Contact</h1>
+
+				<div class="container-fluid mt-1">
+
+					<div class="row">
+
+						<div class="col-md-10 offset-md-1">
+
+							<form onsubmit="return saveContact()" action="#" th:object="${contact}"
+								enctype="multipart/form-data" method="POST" th:action="@{/user/process_update}"
+								class="mt-2">
+								
+								<input type="hidden" th:value="${con.cId}" name="cId" />
+
+								<div class="input-group">
+
+									<div class="input-group-prepand">
+
+										<div class="input-group-text">
+
+											<i class="far fa-user"></i>
+
+										</div>
+									</div>
+
+									<input th:value="${con.name}" class="form-control" type="text" style="height: 30px;" id="firstName"
+										name="name" placeholder="First Name">
+
+								</div>
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepand">
+
+										<div class="input-group-text">
+
+											<i class="fas fa-user"></i>
+
+										</div>
+									</div>
+
+									<input th:value="${con.secondName}" class="form-control" type="text" style="height: 30px;" id="secondName"
+										name="secondName" placeholder="Second Name">
+
+								</div>
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepand">
+
+										<div class="input-group-text">
+
+											<i class="fas fa-phone-volume"></i>
+
+										</div>
+									</div>
+
+									<input th:value="${con.phone}" class="form-control" type="phone" style="height: 30px;" id="phone"
+										name="phone" placeholder="Phone Number">
+
+								</div>
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepand">
+
+										<div class="input-group-text">
+
+											<i class="fas fa-at"></i>
+
+										</div>
+									</div>
+
+									<input th:value="${con.email}" class="form-control" type="email" style="height: 30px;" id="email"
+										name="email" placeholder="Email">
+
+								</div>
+
+								<div class="input-group mt-3">
+
+									<div class="input-group-prepand">
+
+										<div class="input-group-text">
+
+											<i class="fas fa-briefcase"></i>
+
+										</div>
+									</div>
+
+									<input th:value="${con.work}" class="form-control" type="text" style="height: 30px;" id="work" name="work"
+										placeholder="Work">
+
+								</div>
+
+								<div class="input-group mt-3">
+
+									<textarea th:value="${con.description}" class="form-control" rows="5" id="description" name="description"
+										placeholder="Description"></textarea>
+
+								</div>
+
+								<div class="custom-file mt-3">
+									<input type="file" name="cImage">
+								</div>
+
+								<div class="container text-center">
+									<button type="submit" class="btn btn-primary text-white">Update Contact</button>
+
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script th:src="@{/js/script.js}"></script>
+		<script>
+			function saveContact() {
+
+				var fName = document.getElementById("firstName");
+				var sName = document.getElementById("secondName");
+				var cPhone = document.getElementById("phone");
+				var cEmail = document.getElementById("email");
+				if (fName.value == "" || sName.value == "" || phone.value == "" || email.value == "") {
+					alert("Please enter the value");
+					return false;
+				}
+				else {
+					alert("Your contact is updated");
+					return true;
+				}
+			}
+
+		</script>
+
+	</section>
+</body>
+
+</html>

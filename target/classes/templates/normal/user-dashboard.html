@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/user-base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>This is View Contacts Page</title>
+</head>
+
+<body>
+	<section>
+		<h6> This is Dashboard </h6>
+		
+		<div>
+		<label> The count is : </label><span th:text="${count}"></span>
+		
+		</div>		
+		
+		<div>
+		Generate Report <a th:href="@{/user/pdf-report}">Report</a>
+		</div>
+	</section>
+</body>
+</html>
